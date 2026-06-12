@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Natural Bridge Park",
+    "town": "Natural Bridge",
+    "description": "Walk beneath the longest natural bridge east of the Rockies, a 148-foot sandstone masterpiece.",
+    "themeColor": "#2b5c46",
+    "link": "https://mofweb.wixsite.com/naturalbridge",
+    "featured": true,
+    "image": "https://drive.google.com/file/d/1B3vmZDSCCe5ThQwdU0Jt6i_gRiQKGuKd/view?usp=sharing"
+  },
+  {
+    "id": 2,
+    "name": "Hamilton/Sullins House",
+    "town": "Hamilton",
+    "description": "The home of Captain A.J. Hamilton, who donated the 40 acres for the Town of Hamilton to be incorporated. It was renamed in his honor.",
+    "themeColor": "#3b7b5e",
+    "link": "https://hamiltoncityal.org/Explore/HamiltonSullinsHouse",
+    "featured": true,
+    "image": "https://drive.google.com/file/d/1DVv-t_MbaKNXjnD9b09Qhi92HlCMfAZB/view?usp=sharing"
+  },
+  {
+    "id": 3,
+    "name": "Historic Pikeville",
+    "town": "Guin",
+    "description": "Step back in time and explore the preserved history of Marion County's original county seat.",
+    "themeColor": "#4a9976",
+    "link": "https://encyclopediaofalabama.org/media/old-marion-county-courthouse/",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1EEfn0SzmrdqlKhhbntirNUKfATIXFXTj/view?usp=sharing"
+  },
+  {
+    "id": 4,
+    "name": "Blue Moon Drive-In Theater",
+    "town": "Gu-Win",
+    "description": "Experience classic cinema under the stars at one of the few remaining twin-screen drive-in theaters in the state, located right in Guin.",
+    "themeColor": "#1a365d",
+    "link": "https://bluemoondrivein.com/",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1B3-be7xvRUnxoZR9Zr749dBdUM3C07vd/view?usp=sharing"
+  },
+  {
+    "id": 5,
+    "name": "Canoeing & Kayaking on the Buttahatchee Rive",
+    "town": "Hamilton",
+    "description": "The Buttahatchee River run is approximately 4.40 miles long with beautiful scenery and caves along the way.",
+    "themeColor": "#800000",
+    "link": "https://hamiltoncityal.org/Explore/CanoeKayak",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1ITRbdaLvldd313cQwS3Jw8CNcUK5yojp/view?usp=drive_link"
+  },
+  {
+    "id": 6,
+    "name": "Jerry Brown Pottery",
+    "town": "Hamilton",
+    "description": "Stroll through the heart of the county seat. Explore local shops, historical archives, and classic southern architecture.",
+    "themeColor": "#2f4f4f",
+    "link": "https://www.northalabama.org/listing/jerry-brown-pottery/385/",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1npL84HVcL5LUFN-WxlJK6TljlLv5zQgS/view?usp=drive_link"
+  },
+  {
+    "id": 7,
+    "name": "R. W. Harris Store",
+    "town": "Winfield",
+    "description": " The R. W. Harris Store in Winfield, (center white building) was established in 1895 and continues to operate today.",
+    "themeColor": "#800000",
+    "link": "https://encyclopediaofalabama.org/media/r-w-harris-store/",
+    "featured": true,
+    "image": "https://drive.google.com/file/d/1OZ2Gks2L9yVlxI7T0-aDuOCRCKqxFY3Q/view?usp=sharing"
+  },
+  {
+    "id": 8,
+    "name": "The Pastime Theater",
+    "town": "Winfield",
+    "description": "The Pastime Theater in Winfield, Marion County, was built in 1937 and is owned and operated by the City of Winfield, which uses it as a venue for cultural and artistic events.",
+    "themeColor": "#2f4f4f",
+    "link": "https://www.winfieldcity.org/en/pastime-theatre",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1a9e4FyyFLafIdqKowjDsZgeRPKyRLr54/view?usp=sharing"
+  },
+{
+    "id": 9,
+    "name": "Chickasaw Indian Mounds",
+    "town": "Hamilton",
+    "description": "The cluster of three mounds known as the Hamilton Mounds site is largest indigenous mound site in Marion county. Alabama. The site includes three mounds along the Buttahtchee River: a large mound with a two-tiered summit, another small two tiered mound and yet smaller mound situated between the two.",
+    "themeColor": "#2f4f4f",
+    "link": "https://hamiltoncityal.org/Explore/IndianMounds",
+    "featured": false,
+    "image": "https://drive.google.com/file/d/1WJcDeCj7AmNjHGLKJU9ttSJF30t8nWah/view?usp=drive_link"
+  }
+]
