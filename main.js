@@ -3,16 +3,17 @@
 ========================================= */
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
+const cacheVersion = '202606121816';
 
 if (attractionsGrid || featuredGrid) {
-    fetch('attractions.json')
+    fetch(`attractions.json?v=${cacheVersion}`)
         .then(response => response.json())
         .then(data => {
             const buildCards = (items) => {
                 let htmlOutput = '';
                 items.forEach(item => {
                     // Using the proven URL pattern
-                    let displayImage = 'assets/vmc_logo.png'; 
+                    let displayImage = `assets/vmc_logo.png?v=${cacheVersion}`; 
                     if (item.image && item.image.includes('drive.google.com/file/d/')) {
                         const fileId = item.image.split('/file/d/')[1].split('/')[0];
                         displayImage = `https://lh3.googleusercontent.com/d/${fileId}`;
@@ -72,7 +73,7 @@ if (eventsGrid) {
                     const location = event.venue || event.city || 'Marion County';
                     const eventUrl = event.url || '#';
                     
-                    let posterUrl = 'assets/vmc_logo.png'; 
+                    let posterUrl = `assets/vmc_logo.png?v=${cacheVersion}`; 
                     if (event.image && event.image.includes('drive.google.com/file/d/')) {
                         const fileId = event.image.split('/file/d/')[1].split('/')[0];
                         posterUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
