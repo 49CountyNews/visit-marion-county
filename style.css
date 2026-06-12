@@ -1,4 +1,4 @@
-﻿/* --- CSS Variables for Easy Theming --- */
+﻿/* --- CSS Variables --- */
 :root {
     --primary-color: #2b5c46; 
     --secondary-color: #e67e22; 
@@ -6,7 +6,6 @@
     --text-light: #f4f4f9;
     --bg-light: #ffffff;
     --bg-offwhite: #f8f9fa;
-    
     --font-main: 'Open Sans', sans-serif;
     --font-heading: 'Playfair Display', serif;
 }
@@ -19,7 +18,7 @@
 }
 
 html, body {
-    overflow-x: hidden; /* Prevents the page from being wider than the phone screen */
+    overflow-x: hidden; 
     width: 100%;
 }
 
@@ -57,10 +56,10 @@ a {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
 }
 
-/* --- Logo & Responsive Fixes --- */
+/* --- Logo Straddle Styling --- */
 .logo {
     display: flex;
     align-items: center;
@@ -70,23 +69,24 @@ a {
 }
 
 .nav-logo-img {
-    height: 80px; /* Reduced for better mobile fit */
+    height: 150px;
     width: auto;
-    max-width: 100%;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: -75px;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
 }
 
 .nav-title-img {
-    max-height: 50px; 
+    max-height: 90px;
     width: auto;
-    max-width: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 /* --- Hero Section --- */
@@ -94,12 +94,12 @@ a {
     position: relative;
     color: var(--text-light);
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 8rem 2rem;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    min-height: 60vh;
 }
 
 .hero-video {
@@ -134,9 +134,9 @@ a {
 /* --- Grid Section --- */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -146,6 +146,14 @@ a {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Section Titles (Centered) --- */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: var(--primary-color);
 }
 
 /* --- Buttons --- */
@@ -160,21 +168,33 @@ a {
     text-decoration: none;
 }
 
-/* --- Mobile Nav Media Query --- */
+/* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
         text-align: center;
+        padding-bottom: 20px;
     }
     
     .nav-logo-img {
-        height: 60px; /* Further reduced for small mobile screens */
+        height: 90px;
+        margin-bottom: -40px;
+        margin-right: 0;
     }
 
     .main-nav ul {
-        gap: 0.5rem;
-        margin-top: 10px;
-        font-size: 0.9rem;
+        gap: 1rem;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 4rem 1rem;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
     }
 }
 
