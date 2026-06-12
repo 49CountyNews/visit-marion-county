@@ -29,7 +29,7 @@ if (attractionsGrid || featuredGrid) {
                                 <p style="font-size: 0.8rem; color: #718096; margin-bottom: 2px; text-transform: uppercase; font-weight: 600;">${item.town || 'Marion County'}</p>
                                 <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-weight: 800;">${item.name}</h3>
                                 <p style="color: #4a5568; margin-bottom: 1rem;">${item.description}</p>
-                                <a href="${item.link}" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a class="card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                         </article>
                     `;
@@ -89,7 +89,7 @@ if (eventsGrid) {
                                 <h3>${title}</h3>
                                 <p style="color: var(--secondary-color); font-weight: bold; margin-bottom: 5px;">${date}</p>
                                 <p style="font-size: 0.95rem;"><strong>Location:</strong> ${location}</p>
-                                <a href="${eventUrl}" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a class="card-link" href="${eventUrl}" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                         </article>
                     `;

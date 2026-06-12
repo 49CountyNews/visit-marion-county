@@ -25,8 +25,6 @@ body {
     line-height: 1.6;
 }
 
-
-
 /* --- Typography & Links --- */
 a {
     text-decoration: none;
@@ -59,6 +57,8 @@ a {
     text-decoration: none;
     position: relative; 
     z-index: 1002; /* Ensures the logo stays visually above the hero video overlay */
+    max-width: 100%;
+    min-width: 0;
 }
 
 .nav-logo-img {
@@ -73,6 +73,8 @@ a {
 .nav-title-img {
     max-height: 90px; /* Keeps the wordmark contained inside the menu bar */
     width: auto;      /* Prevents the image from stretching or distorting */
+    max-width: min(430px, 55vw);
+    object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* Adds a very soft shadow to make it pop off the white background */
 }
 .text {
@@ -193,6 +195,25 @@ a {
     color: var(--primary-color);
 }
 
+.card-link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    background-color: var(--primary-color);
+    color: var(--bg-light);
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.card-link:hover {
+    background-color: #1f4433;
+    color: var(--bg-light);
+    transform: translateY(-2px);
+}
+
 /* --- Footer --- */
 .site-footer {
     background-color: var(--text-dark);
@@ -207,6 +228,26 @@ a {
     .nav-container {
         flex-direction: column;
         gap: 1rem;
+        padding: 0.75rem 1rem 1rem;
+        overflow: visible;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-logo-img {
+        height: 86px;
+        margin-right: 8px;
+        margin-top: 0;
+        margin-bottom: -28px;
+        flex: 0 0 auto;
+    }
+
+    .nav-title-img {
+        max-height: 58px;
+        max-width: calc(100% - 98px);
     }
     
     .main-nav ul {
