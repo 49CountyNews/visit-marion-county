@@ -25,11 +25,7 @@ body {
     line-height: 1.6;
 }
 
-/* Apply the classic matching font to all Headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-}
+
 
 /* --- Typography & Links --- */
 a {
