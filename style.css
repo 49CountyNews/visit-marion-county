@@ -9,7 +9,7 @@
     
     /* Updated Fonts */
     --font-main: 'Open Sans', sans-serif; /* Clean font for small reading */
-    --font-heading: 'Playfair Display', serif; /* Classic font for big titles */
+    --font-heading: 'Cinzel Decorative', 'Playfair Display', Georgia, serif; /* Ornate display font inspired by the wordmark */
 }
 /* --- Global Resets --- */
 * {
@@ -136,7 +136,9 @@ a {
 }
 
 .hero h1 {
+    font-family: var(--font-heading);
     font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Helps text pop off the screen */
 }
@@ -154,8 +156,10 @@ a {
 }
 
 .section-title {
+    font-family: var(--font-heading);
     text-align: center;
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 3rem;
     color: var(--primary-color);
 }
@@ -191,6 +195,8 @@ a {
 }
 
 .card-content h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
 }

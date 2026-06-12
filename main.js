@@ -3,7 +3,7 @@
 ========================================= */
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
-const cacheVersion = '202606121816';
+const cacheVersion = '202606121821';
 
 if (attractionsGrid || featuredGrid) {
     fetch(`attractions.json?v=${cacheVersion}`)
@@ -28,7 +28,7 @@ if (attractionsGrid || featuredGrid) {
                             </div>
                             <div class="card-content">
                                 <p style="font-size: 0.8rem; color: #718096; margin-bottom: 2px; text-transform: uppercase; font-weight: 600;">${item.town || 'Marion County'}</p>
-                                <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-weight: 800;">${item.name}</h3>
+                                <h3 style="margin-top: 0; margin-bottom: 0.5rem;">${item.name}</h3>
                                 <p style="color: #4a5568; margin-bottom: 1rem;">${item.description}</p>
                                 <a class="card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
