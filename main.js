@@ -3,7 +3,7 @@
 ========================================= */
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
-const cacheVersion = '202606121821';
+const cacheVersion = '202606121823';
 
 if (attractionsGrid || featuredGrid) {
     fetch(`attractions.json?v=${cacheVersion}`)
