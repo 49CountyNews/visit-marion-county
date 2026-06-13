@@ -176,6 +176,21 @@ a {
     gap: 2rem;
 }
 
+.map-card {
+    background: var(--bg-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.map-card iframe {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 52vw, 520px);
+    border: 0;
+}
+
 .grid-card {
     background: var(--bg-light);
     border-radius: 8px;
