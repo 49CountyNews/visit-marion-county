@@ -93,6 +93,10 @@ a {
     font-weight: 600;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 /* --- Hero Section with Background Video --- */
 .hero {
     position: relative;
@@ -244,14 +248,15 @@ a {
 /* --- Mobile Nav Media Query --- */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.75rem 1rem 1rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
         overflow: visible;
     }
 
     .logo {
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
     }
 
@@ -267,11 +272,78 @@ a {
         max-height: 58px;
         max-width: calc(100% - 98px);
     }
+
+    .menu-toggle {
+        align-self: center;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background-color: var(--primary-color);
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        margin: 0 auto;
+        background-color: var(--bg-light);
+        border-radius: 2px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .main-nav {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .main-nav.open {
+        display: block;
+    }
     
     .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        padding-top: 0.5rem;
+    }
+
+    .main-nav li {
+        width: 100%;
+    }
+
+    .main-nav a {
+        display: block;
+        width: 100%;
+        padding: 0.85rem 1rem;
+        background-color: var(--bg-offwhite);
+        border-top: 1px solid rgba(43, 92, 70, 0.14);
+        color: var(--text-dark);
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        background-color: rgba(43, 92, 70, 0.08);
     }
 }
 /* --- Buttons --- */

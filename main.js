@@ -4,7 +4,19 @@
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
 const communitiesGrid = document.getElementById('communities-grid');
-const cacheVersion = '202606122145';
+const cacheVersion = '202606122215';
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('.main-nav');
+
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+}
 
 const getDisplayImage = (image) => {
     let displayImage = `assets/vmc_logo.png?v=${cacheVersion}`;
@@ -24,6 +36,10 @@ const buildCards = (items) => {
         const displayImage = getDisplayImage(item.image);
         const label = item.town || item.communityType || 'Marion County';
         const buttonText = item.buttonText || 'Learn More';
+        const isCommunityCard = item.websiteLink || item.historyLink;
+        const imageStyle = isCommunityCard
+            ? 'width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: contain; padding: 1rem;'
+            : 'width: 100%; height: 200px; object-fit: cover;';
         const cardLinks = item.websiteLink || item.historyLink
             ? `
                 <div class="card-actions">
@@ -34,9 +50,9 @@ const buildCards = (items) => {
             : `<a class="card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">${buttonText} &rarr;</a>`;
 
         htmlOutput += `
-            <article class="grid-card">
+            <article class="grid-card${isCommunityCard ? ' community-card' : ''}">
                 <div style="background-color: ${item.themeColor || '#ccc'}; text-align: center; border-bottom: 3px solid var(--primary-color);">
-                    <img src="${displayImage}" alt="${item.name}" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="${displayImage}" alt="${item.name}" style="${imageStyle}">
                 </div>
                 <div class="card-content">
                     <p style="font-size: 0.8rem; color: #718096; margin-bottom: 2px; text-transform: uppercase; font-weight: 600;">${label}</p>
