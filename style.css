@@ -220,6 +220,18 @@ a {
     transform: translateY(-2px);
 }
 
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.card-actions .card-link {
+    margin-top: 0;
+}
+
+
 /* --- Footer --- */
 .site-footer {
     background-color: var(--text-dark);
