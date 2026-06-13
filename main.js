@@ -4,7 +4,7 @@
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
 const communitiesGrid = document.getElementById('communities-grid');
-const cacheVersion = '202606122215';
+const cacheVersion = '202606122225';
 
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
@@ -40,6 +40,7 @@ const buildCards = (items) => {
         const imageStyle = isCommunityCard
             ? 'width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: contain; padding: 1rem;'
             : 'width: 100%; height: 200px; object-fit: cover;';
+        const imageBackground = isCommunityCard ? '#000000' : item.themeColor || '#ccc';
         const cardLinks = item.websiteLink || item.historyLink
             ? `
                 <div class="card-actions">
@@ -51,7 +52,7 @@ const buildCards = (items) => {
 
         htmlOutput += `
             <article class="grid-card${isCommunityCard ? ' community-card' : ''}">
-                <div style="background-color: ${item.themeColor || '#ccc'}; text-align: center; border-bottom: 3px solid var(--primary-color);">
+                <div style="background-color: ${imageBackground}; text-align: center; border-bottom: 3px solid var(--primary-color);">
                     <img src="${displayImage}" alt="${item.name}" style="${imageStyle}">
                 </div>
                 <div class="card-content">
