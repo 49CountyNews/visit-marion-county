@@ -176,29 +176,6 @@ a {
     gap: 2rem;
 }
 
-.attraction-city-group {
-    grid-column: 1 / -1;
-}
-
-.attraction-city-group + .attraction-city-group {
-    margin-top: 1rem;
-}
-
-.city-group-title {
-    font-family: var(--font-heading);
-    font-size: 1.65rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 2px solid rgba(43, 92, 70, 0.18);
-}
-
-.city-group-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
 .map-card {
     background: var(--bg-light);
     border-radius: 8px;

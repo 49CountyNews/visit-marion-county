@@ -81,30 +81,6 @@ const buildCards = (items, options = {}) => {
     return htmlOutput;
 };
 
-const buildAttractionGroups = (items) => {
-    const sortedItems = [...items].sort((a, b) => {
-        const townCompare = (a.town || 'Marion County').localeCompare(b.town || 'Marion County');
-        if (townCompare !== 0) return townCompare;
-        return a.name.localeCompare(b.name);
-    });
-
-    const groupedItems = sortedItems.reduce((groups, item) => {
-        const town = item.town || 'Marion County';
-        if (!groups[town]) groups[town] = [];
-        groups[town].push(item);
-        return groups;
-    }, {});
-
-    return Object.entries(groupedItems).map(([town, townItems]) => `
-        <section class="attraction-city-group" aria-labelledby="attractions-${town.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">
-            <h3 class="city-group-title" id="attractions-${town.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">${town}</h3>
-            <div class="city-group-grid">
-                ${buildCards(townItems, { enableMapLinks: true })}
-            </div>
-        </section>
-    `).join('');
-};
-
 const setupAttractionsMap = () => {
     const mapFrame = document.getElementById('attractions-map');
     const resetButton = document.getElementById('map-reset-button');
@@ -154,7 +130,7 @@ if (attractionsGrid || featuredGrid) {
         .then(response => response.json())
         .then(data => {
             if (attractionsGrid) {
-                attractionsGrid.innerHTML = buildAttractionGroups(data);
+                attractionsGrid.innerHTML = buildCards(data, { enableMapLinks: true });
                 setupAttractionsMap();
             }
             if (featuredGrid) featuredGrid.innerHTML = buildCards(data.filter(item => item.featured === true));
