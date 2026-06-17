@@ -30,18 +30,7 @@ const getDisplayImage = (image) => {
     return displayImage;
 };
 
-const escapeAttribute = (value) => String(value || '')
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-
-const getMapQuery = (item) => {
-    const town = item.town || 'Marion County';
-    return `${item.name}, ${town}, Alabama`;
-};
-
-const buildCards = (items, options = {}) => {
+const buildCards = (items) => {
     let htmlOutput = '';
     items.forEach(item => {
         const displayImage = getDisplayImage(item.image);
@@ -60,12 +49,9 @@ const buildCards = (items, options = {}) => {
                 </div>
             `
             : `<a class="card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">${buttonText} &rarr;</a>`;
-        const mapAttributes = options.enableMapLinks
-            ? ` tabindex="0" data-map-query="${escapeAttribute(getMapQuery(item))}" data-map-name="${escapeAttribute(item.name)}"`
-            : '';
 
         htmlOutput += `
-            <article class="grid-card${isCommunityCard ? ' community-card' : ''}"${mapAttributes}>
+            <article class="grid-card${isCommunityCard ? ' community-card' : ''}">
                 <div style="background-color: ${imageBackground}; text-align: center; border-bottom: 3px solid var(--primary-color);">
                     <img src="${displayImage}" alt="${item.name}" style="${imageStyle}">
                 </div>
@@ -81,58 +67,11 @@ const buildCards = (items, options = {}) => {
     return htmlOutput;
 };
 
-const setupAttractionsMap = () => {
-    const mapFrame = document.getElementById('attractions-map');
-    const resetButton = document.getElementById('map-reset-button');
-    const mapStatus = document.getElementById('map-status');
-    if (!mapFrame || !attractionsGrid) return;
-
-    const fullMapSrc = mapFrame.getAttribute('src');
-    let activeMapQuery = '';
-    const showFullMap = () => {
-        mapFrame.setAttribute('src', fullMapSrc);
-        activeMapQuery = '';
-        if (mapStatus) mapStatus.textContent = 'Showing the full Marion County attractions map.';
-    };
-    const showAttractionMap = (card) => {
-        const mapQuery = card.dataset.mapQuery;
-        if (!mapQuery) return;
-        if (mapQuery === activeMapQuery) return;
-        activeMapQuery = mapQuery;
-        mapFrame.setAttribute('src', `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`);
-        if (mapStatus) mapStatus.textContent = `Showing ${card.dataset.mapName || 'this attraction'} on the map.`;
-    };
-
-    attractionsGrid.addEventListener('mouseover', (event) => {
-        const card = event.target.closest('.grid-card');
-        if (card && attractionsGrid.contains(card)) showAttractionMap(card);
-    });
-
-    attractionsGrid.addEventListener('focusin', (event) => {
-        const card = event.target.closest('.grid-card');
-        if (card && attractionsGrid.contains(card)) showAttractionMap(card);
-    });
-
-    attractionsGrid.addEventListener('click', (event) => {
-        if (event.target.closest('a')) return;
-        const card = event.target.closest('.grid-card');
-        if (card && attractionsGrid.contains(card)) {
-            showAttractionMap(card);
-            mapFrame.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    });
-
-    resetButton?.addEventListener('click', showFullMap);
-};
-
 if (attractionsGrid || featuredGrid) {
     fetch(`attractions.json?v=${cacheVersion}`)
         .then(response => response.json())
         .then(data => {
-            if (attractionsGrid) {
-                attractionsGrid.innerHTML = buildCards(data, { enableMapLinks: true });
-                setupAttractionsMap();
-            }
+            if (attractionsGrid) attractionsGrid.innerHTML = buildCards(data);
             if (featuredGrid) featuredGrid.innerHTML = buildCards(data.filter(item => item.featured === true));
         })
         .catch(error => console.error('Error loading attractions:', error));

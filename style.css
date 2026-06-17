@@ -184,41 +184,6 @@ a {
     overflow: hidden;
 }
 
-.map-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.85rem 1rem;
-    border-bottom: 1px solid rgba(43, 92, 70, 0.14);
-}
-
-.map-toolbar p {
-    margin: 0;
-    color: #4a5568;
-    font-size: 0.95rem;
-}
-
-.map-reset-button {
-    flex: 0 0 auto;
-    border: 0;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: var(--bg-light);
-    cursor: pointer;
-    font-family: var(--font-main);
-    font-weight: 700;
-    padding: 0.55rem 0.85rem;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.16);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.map-reset-button:hover,
-.map-reset-button:focus {
-    background-color: #1f4433;
-    transform: translateY(-1px);
-}
-
 .map-card iframe {
     display: block;
     width: 100%;
@@ -236,15 +201,6 @@ a {
 
 .grid-card:hover {
     transform: translateY(-5px);
-}
-
-#attractions-grid .grid-card {
-    cursor: pointer;
-}
-
-#attractions-grid .grid-card:focus {
-    outline: 3px solid rgba(230, 126, 34, 0.45);
-    outline-offset: 4px;
 }
 
 .card-image {
@@ -405,10 +361,6 @@ a {
         background-color: rgba(43, 92, 70, 0.08);
     }
 
-    .map-toolbar {
-        align-items: flex-start;
-        flex-direction: column;
-    }
 }
 /* --- Buttons --- */
 .btn {
