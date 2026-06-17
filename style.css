@@ -198,6 +198,10 @@ a {
     border: 0;
 }
 
+.historical-map-card iframe {
+    height: clamp(340px, 54vw, 560px);
+}
+
 .grid-card {
     background: var(--bg-light);
     border-radius: 8px;
