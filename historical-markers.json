@@ -1,0 +1,60 @@
+[
+{
+  "id": 1,
+  "name": "Shottsville Cemetery",
+  "town": "Vina",
+  "address": "2200 Marion County 56, Vina AL 35593",
+  "gps": "34° 15.63′ N, 88° 7.5′ W.",
+  "description": "Shottsville and the adjacent area was Chickasaw Indian land until ceded to the U.S. Government by treaty and acts of Congress. The U.S. Land Office in Pontotoc, Mississippi then sold the land to white settlers. On Oct. 6, 1836, John Stone purchased two 160-acre tracts. John Stone and his wife, Annie Liles, reared 13 children here. Twelve of the children raised their families in this area known as Stonetown. John Stone's daughter, Emma Elvira, married Lovid McCindry Shotts in December 1841. After John Stone's death, Lovid and Elvira moved to John's home and opened a store in 1870. They applied for and secured a post office in Shottsville in 1874. The first burial at Shottsville was John and Annie Stone's granddaughter in 1840. In 1846, Annie Stone was the first adult laid to rest here. Honored veterans from the Civil War, WWI, WWII, Korea, Vietnam and Iraq are buried here. Many prominent community leaders are buried here including President John Tyler's niece, Louise Tyler Stone, who was buried here in 1891.",
+  "image": "assets/your-marker-photo.jpg",
+  "sourceLink": "https://www.hmdb.org/m.asp?m=282658",
+  "buttonText": "Source"
+}, 
+{
+  "id": 2,
+  "name": "Factory Cemetery",
+  "town": "Vina",
+  "address": "2200 Marion County 56, Vina AL 35593",
+  "gps": "34° 16.902′ N, 87° 43.313′ W.",
+  "description": "Circa 1850, 1st Dated Stone 1877, Erected by Winston County Grays Camp 1788 and Order of Confederate Rose Chapter 18.",
+  "image": "assets/your-marker-photo.jpg",
+  "sourceLink": "https://www.hmdb.org/m.asp?m=94962",
+  "buttonText": "Source"
+}, 
+{
+  "id": 3,
+  "name": "Haleyville Ice Company",
+  "town": "Haleyville",
+  "address": "1579 Alabama Ave, Haleyville AL 35565",
+  "gps": "34° 13.281′ N, 87° 37.729′ W",
+  "description": "On this site was located the Haleyville Ice Company during the years 1912-1957. The ice plant underwent technology improvements and modernization throughout the years. Ice was produced in 300 pound blocks and cut into appropriate sizes, delivered at homes and businesses. The plant served the community until technology made possible home and business refrigeration. The ice plant was owned, built and operated by Arthur Dillard Sr., a long time citizen of Haleyville. This Haleyville enterprise was a leader in the field for many years and assisted in the modern growth of the city and surrounding area.",
+  "image": "assets/your-marker-photo.jpg",
+  "sourceLink": "https://www.hmdb.org/m.asp?m=214778",
+  "buttonText": "Source"
+}, 
+{
+  "id": 4,
+  "name": "Whitehouse Cemetery Grounds",
+  "town": "Whitehouse",
+  "address": "15011 Haley's Rd, Haleyville AL 35565",
+  "gps": "34° 7.395′ N, 87° 44.092′ W",
+  "description": "This land was originally part of Land Grant claim of Capt. Joseph Burleson • War 1812/Creek War under Andrew Jackson. By 1820 the Forks of the Buttahatcha Primitive Baptist Church was founded on the ridge to the NW of this site.
+
+Capt Burleson promoted his kin and fellow soldier families to join him here. He built the old Burleson Trace to connect the Cheatham Road from near Old Houston, into Larissa (now Lynn), to Natural Bridge and then to this place. Capt. Burleson in 1832 went to Walnut Creek, Bastrop County TX, and participated in TX independence (a nephew, Edward Burleson was a General in TX Army and VP of the TX Republic).
+
+First burials here were members of the "Forks" church. By 1850, Green Haley, relocated to a home just south off the entry road. Haley established the Christian Church, named Whitehouse Church of Christ nearby. The current Whitehouse church was built in 1916. It was about that period that the remaining members of the "Forks" church chose to merge with the Whitehouse church. Today, this site is a center for many families. Several veterans of the Civil War are buried here, and a surprising number were Union Soldiers.",
+  "image": "assets/your-marker-photo.jpg",
+  "sourceLink": "https://www.hmdb.org/m.asp?m=248366",
+  "buttonText": "Source"
+}, 
+{
+  "id": 5,
+  "name": "Buttahatchee Cemetery",
+  "town": "Whitehouse",
+  "address": "Hackleburg AL 35564",
+  "gps": "34° 10.152′ N, 87° 49.186′ W",
+  "description": "The Buttahatchee Cemetery has been placed on the Alabama Historic Cemetery Register by the Alabama Historical Commission. The Alabama Territorial Legislature Act of December 16, 1819, designated the Buttahatchee community as the temporary seat of Justice for Marion County. The house of Henry Grier served as the temporary seat. The first known internment here was Mary E. Bottoms, 2 year old daughter of Thomas and Ursula Bottoms, who died on December 1, 1848.",
+  "image": "assets/your-marker-photo.jpg",
+  "sourceLink": "https://www.hmdb.org/m.asp?m=284146",
+  "buttonText": "Source"
+]

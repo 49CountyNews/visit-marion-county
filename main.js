@@ -4,6 +4,7 @@
 const attractionsGrid = document.getElementById('attractions-grid');
 const featuredGrid = document.getElementById('featured-grid');
 const communitiesGrid = document.getElementById('communities-grid');
+const historicalMarkersGrid = document.getElementById('historical-markers-grid');
 const cacheVersion = '202606122225';
 
 const menuToggle = document.querySelector('.menu-toggle');
@@ -30,6 +31,16 @@ const getDisplayImage = (image) => {
     return displayImage;
 };
 
+const getGpsCoordinates = (item) => {
+    if (item.latitude && item.longitude) return `${item.latitude}, ${item.longitude}`;
+    if (item.lat && item.lng) return `${item.lat}, ${item.lng}`;
+    if (typeof item.coordinates === 'string') return item.coordinates;
+    if (item.coordinates && item.coordinates.lat && item.coordinates.lng) {
+        return `${item.coordinates.lat}, ${item.coordinates.lng}`;
+    }
+    return item.gps || '';
+};
+
 const buildCards = (items) => {
     let htmlOutput = '';
     items.forEach(item => {
@@ -37,18 +48,34 @@ const buildCards = (items) => {
         const label = item.town || item.communityType || 'Marion County';
         const buttonText = item.buttonText || 'Learn More';
         const isCommunityCard = item.websiteLink || item.historyLink;
+        const primaryLink = item.link || item.sourceLink || '';
+        const gpsCoordinates = getGpsCoordinates(item);
+        const address = item.address || '';
+        const directionsDestination = gpsCoordinates || address;
+        const locationDetails = address || gpsCoordinates
+            ? `
+                <div class="card-location">
+                    ${address ? `<p><strong>Address:</strong> ${address}</p>` : ''}
+                    ${gpsCoordinates ? `<p><strong>GPS:</strong> ${gpsCoordinates}</p>` : ''}
+                </div>
+            `
+            : '';
         const imageStyle = isCommunityCard
             ? 'width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: contain; padding: 1rem;'
             : 'width: 100%; height: 200px; object-fit: cover;';
         const imageBackground = isCommunityCard ? '#000000' : item.themeColor || '#ccc';
-        const cardLinks = item.websiteLink || item.historyLink
-            ? `
-                <div class="card-actions">
-                    ${item.websiteLink ? `<a class="card-link" href="${item.websiteLink}" target="_blank" rel="noopener noreferrer">Website &rarr;</a>` : ''}
-                    ${item.historyLink ? `<a class="card-link" href="${item.historyLink}" target="_blank" rel="noopener noreferrer">History &rarr;</a>` : ''}
-                </div>
-            `
-            : `<a class="card-link" href="${item.link}" target="_blank" rel="noopener noreferrer">${buttonText} &rarr;</a>`;
+        const actionLinks = [];
+        if (item.websiteLink) actionLinks.push(`<a class="card-link" href="${item.websiteLink}" target="_blank" rel="noopener noreferrer">Website &rarr;</a>`);
+        if (item.historyLink) actionLinks.push(`<a class="card-link" href="${item.historyLink}" target="_blank" rel="noopener noreferrer">History &rarr;</a>`);
+        if (!item.websiteLink && !item.historyLink && primaryLink) {
+            actionLinks.push(`<a class="card-link" href="${primaryLink}" target="_blank" rel="noopener noreferrer">${buttonText} &rarr;</a>`);
+        }
+        if (directionsDestination) {
+            actionLinks.push(`<a class="card-link card-link-secondary" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(directionsDestination)}" target="_blank" rel="noopener noreferrer">Directions &rarr;</a>`);
+        }
+        const cardLinks = actionLinks.length
+            ? `<div class="card-actions">${actionLinks.join('')}</div>`
+            : '';
 
         htmlOutput += `
             <article class="grid-card${isCommunityCard ? ' community-card' : ''}">
@@ -59,6 +86,7 @@ const buildCards = (items) => {
                     <p style="font-size: 0.8rem; color: #718096; margin-bottom: 2px; text-transform: uppercase; font-weight: 600;">${label}</p>
                     <h3 style="margin-top: 0; margin-bottom: 0.5rem;">${item.name}</h3>
                     <p style="color: #4a5568; margin-bottom: 1rem;">${item.description}</p>
+                    ${locationDetails}
                     ${cardLinks}
                 </div>
             </article>
@@ -86,6 +114,20 @@ if (communitiesGrid) {
         .catch(error => {
             console.error('Error loading communities:', error);
             communitiesGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: red;">Error loading the communities guide. Please check your console.</p>';
+        });
+}
+
+if (historicalMarkersGrid) {
+    fetch(`historical-markers.json?v=${cacheVersion}`)
+        .then(response => response.json())
+        .then(data => {
+            historicalMarkersGrid.innerHTML = data.length
+                ? buildCards(data)
+                : '<p class="empty-state">Historical markers are being added. Check back soon for photos, locations, and source links.</p>';
+        })
+        .catch(error => {
+            console.error('Error loading historical markers:', error);
+            historicalMarkersGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: red;">Error loading the historical markers guide. Please check your console.</p>';
         });
 }
 
